@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+   int array[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+   int loop;
+
+   printf("In tat ca phan tu cua mang: \n\n");
+   for(loop = 0; loop < 10; loop++)
+      printf("%d ", array[loop]);
+      
+   return 0;
+}

@@ -1,43 +1,47 @@
-#include<stdio.h>
-#include<math.h>
-int giaiPT(float a, float b, float c,float &x1, float &x2){
-    float delta = b*b - 4*a*c;
-    if(delta<0){
-        x1=x2=0.0;
-        return 0;
-    }
-    else if(delta==0){
-        x1 = x2 = -b/(2*a);
+#include <stdio.h>
+
+
+float ptbac1(float a, float b)
+{
+    printf("nhap vao he so a : "); scanf("%f", &a);
+    printf("nhap vao he so b : "); scanf("%f", &b);
+
+    if(a == 0)
+    {
+        if(b == 0)
+            printf("phuong trinh vo nghiem");
+        else
+            printf("phuong trinh co mot nghiem duy nhat x = %f", -b/2*a);
         return 1;
     }
-    else{
-        delta = sqrt(delta);
-        x1 = (-b + delta) / (2*a);
-        x2 = (-b - delta) / (2*a);
-        return 2;
-    }
+    return 0;
 }
-int main(){
-    float a,b,c;
-    float x1,x2;
-    do{
-        printf("Nhap a (a!=0): ");
-        scanf("%f",&a);
-        printf("Nhap b: ");
-        scanf("%f",&b);
-        printf("Nhap c: ");
-        scanf("%f",&c);
+
+float ptbac2(float a, float b, float c)
+{
+    printf("nhap vao he so a : "); scanf("%f", &a);
+    printf("nhap vao he so b : "); scanf("%f", &b);
+    printf("nhap vao he so c : "); scanf("%f", &c);
+
+    if(a != 0)
+    {
+        float deta = b*b - 4*a*c;
+
+        if(deta > 0)
+        {
+            float x1 = (-b + sqrt(deta)) / 2*a;
+            float x2 = (-b - sqrt(deta)) / 2*a;
+
+            printf("vay phuong trinh co 2 nghiem phan biet la \n");
+            printf("x1 = %f \n", &x1);
+            printf("x2 = %f", & x2);
+        }
+        else if(deta == 0)
+            printf("phuong trinh vo nghiem");
+        else
+            printf("phuong trinh co nghiem kep x = %f", -b/2*a);
+
+        return 1;
     }
-    while(!a);
-    int numNo = giaiPT(a,b,c,x1,x2);
-        if(numNo == 0) {
-        printf("Phuong trinh da cho vo nghiem");
-    }
-    else if(numNo == 1){
-        printf("Phuong trinh da cho co nghiem kep x=%.4f",x1);
-    }
-    else{
-        printf("Phuong trinh da cho co hai nghiem phan biet\nx1=%.4f \nx2=%.4f",x1,x2);
-    }
+    return 0;
 }
- 
