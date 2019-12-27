@@ -3,7 +3,7 @@
 int main() {
    float percentage;
    int total_marks = 86;
-   int scored = 50;
+   int scored = 59;
 
    percentage = (float)scored / total_marks * 100.0;
 
